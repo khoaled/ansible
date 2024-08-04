@@ -16,6 +16,8 @@
           - sddm
           - sddm-kcm
           - avahi
+          - bluez
+          - bluedevil
           - plasma-wayland-protocols
           - firewalld
           - plasma-firewall
@@ -69,6 +71,11 @@
       ansible.builtin.systemd_service:
         enabled: true
         name: cups
+
+    - name: Start Bluetooth
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: bluetooth
 
     - name: Start Acpid    
       ansible.builtin.systemd_service:
