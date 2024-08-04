@@ -40,6 +40,7 @@
           - packagekit
           - packagekit-qt5
           - packagekit-qt6
+          - openssh
           - fwupd
           - reflector
           - git
