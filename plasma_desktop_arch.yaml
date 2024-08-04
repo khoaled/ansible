@@ -36,6 +36,8 @@
           - nfs-utils
           - xdg-user-dirs
           - xdg-desktop-portal
+          - xdg-desktop-portal-kde
+          - xdg-desktop-portal-gtk
           - plymouth
           - packagekit
           - packagekit-qt5
