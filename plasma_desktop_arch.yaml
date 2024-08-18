@@ -24,6 +24,8 @@
           - plasma-nm
           - plasma-pa
           - kde-gtk-config
+          - breeze-gtk
+          - ark
           - konsole
           - dolphin
           - plasma-systemmonitor
@@ -63,11 +65,11 @@
           - org.mozilla.firefox
           - com.google.Chrome
           - com.spotify.Client
-          - org.gnome.World.PikaBackup
-          - org.gnome.gedit
+          - org.kde.kalk
+          - org.kde.kwrite
+          - com.github.tchx84.Flatseal
           - com.bitwarden.desktop
           - com.visualstudio.code
-          - com.mojang.Minecraft
           - org.libreoffice.LibreOffice
 
     - name: Start Cups
