@@ -27,6 +27,7 @@
           #- xorg-x11-drv-amdgpu
           - xorg-x11-drv-qxl
           - xorg-x11-server-Xwayland
+          - kscreen
           - sddm
           - sddm-kcm
           - sddm-themes
