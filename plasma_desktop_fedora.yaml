@@ -1,0 +1,83 @@
+- name: Install Gnome Desktop 
+  hosts: localhost
+  become: true
+  tasks:
+    - name: System Update 
+      ansible.builtin.dnf:
+         update_cache: true
+         upgrade: true
+
+    - name: Plasma Desktop
+      ansible.builtin.dnf:
+        name:
+          - acpi
+          - acpid
+          - rsync
+          - fwupd
+          - flatpak
+          - borgbackup
+          - nfs-utils
+          - cups
+          - cups-browsed
+          - avahi
+          - plymouth
+          - firewalld
+          - NetworkManager
+          - plasma-desktop
+          #- xorg-x11-drv-amdgpu
+          - xorg-x11-drv-qxl
+          - xorg-x11-server-Xwayland
+          - sddm
+          - sddm-kcm
+          - sddm-themes
+          - sddm-wayland-plasma
+          - plasma-wayland-protocols
+          - plasma-firewall
+          - plasma-nm
+          - plasma-pa
+          - kde-gtk-config
+          - konsole
+          - dolphin
+          - plasma-systemmonitor
+          - plasma-discover
+          - plasma-discover-packagekit
+          - xdg-user-dirs
+          - xdg-desktop-portal
+          - xdg-desktop-portal-kde
+        state: present
+
+    - name: Add the flathub flatpak repository
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    - name: Install Flatpaks
+      community.general.flatpak:
+        name:
+          - org.mozilla.firefox
+          - com.google.Chrome
+          - com.spotify.Client
+          - com.bitwarden.desktop
+          - com.visualstudio.code
+          - org.libreoffice.LibreOffice
+
+    - name: Start Cups
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cups
+
+    - name: Start Acpid    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: acpid
+
+    - name: Start Avahi-Daemon    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: avahi-daemon
+
+    - name: Start SDDM    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: sddm
