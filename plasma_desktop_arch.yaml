@@ -25,6 +25,7 @@
           - plasma-pa
           - kde-gtk-config
           - breeze-gtk
+          - papirus-icon-theme
           - ark
           - konsole
           - dolphin
