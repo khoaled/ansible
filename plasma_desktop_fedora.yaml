@@ -50,6 +50,9 @@
           - xdg-user-dirs
           - xdg-desktop-portal
           - xdg-desktop-portal-kde
+          - papirus-icon-theme
+          - papirus-icon-theme-dark
+          - papirus-icon-theme-light
         state: present
 
     - name: Add the flathub flatpak repository
@@ -63,7 +66,7 @@
         name:
           - org.mozilla.firefox
           - com.google.Chrome
-          - com.spotify.Client
+          - org.kde.kwrite         
           - com.bitwarden.desktop
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
