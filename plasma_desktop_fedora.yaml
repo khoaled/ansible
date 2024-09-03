@@ -21,6 +21,10 @@
           - cups-browsed
           - avahi
           - plymouth
+          - plymouth-system-theme
+          - plymouth-theme-breeze
+          - plymouth-theme-spinner
+          - plymouth-theme-spinfinity
           - firewalld
           - NetworkManager
           - plasma-desktop
@@ -31,6 +35,7 @@
           - sddm
           - sddm-kcm
           - sddm-themes
+          - sddm-breeze
           - sddm-wayland-plasma
           - plasma-wayland-protocols
           - plasma-firewall
