@@ -66,7 +66,8 @@
         name:
           - org.mozilla.firefox
           - com.google.Chrome
-          - org.kde.kwrite         
+          - org.kde.kwrite
+          - org.kde.kcalc
           - com.bitwarden.desktop
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
