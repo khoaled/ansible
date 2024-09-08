@@ -28,8 +28,6 @@
           - firewalld
           - NetworkManager
           - plasma-desktop
-          #- xorg-x11-drv-amdgpu
-          - xorg-x11-drv-qxl
           - xorg-x11-server-Xwayland
           - kscreen
           - sddm
@@ -44,6 +42,7 @@
           - kde-gtk-config
           - konsole
           - dolphin
+          - ark
           - plasma-systemmonitor
           - plasma-discover
           - plasma-discover-packagekit
