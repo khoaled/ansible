@@ -1,4 +1,4 @@
-- name: Install Gnome Desktop 
+- name: Install Plasma Desktop 
   hosts: localhost
   become: true
   tasks:
