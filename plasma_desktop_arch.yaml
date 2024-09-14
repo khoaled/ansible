@@ -73,6 +73,7 @@
           - com.bitwarden.desktop
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
+          - com.discordapp.Discord
 
     - name: Start Cups
       ansible.builtin.systemd_service:
