@@ -1,4 +1,4 @@
-- name: Install Gnome Desktop
+- name: Install Plasma Desktop
   hosts: localhost
   become: true
   tasks:
@@ -10,6 +10,7 @@
     - name: Plasma Desktop
       community.general.pacman:
         name:
+          - btrfs-progs
           - plasma-desktop
           - xorg-server
           - xorg-xwayland
