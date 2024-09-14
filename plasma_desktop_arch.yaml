@@ -16,6 +16,7 @@
           - xorg-xwayland
           - sddm
           - sddm-kcm
+          - kscreen
           - avahi
           - bluez
           - bluedevil
