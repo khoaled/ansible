@@ -1,3 +1,4 @@
+# Install ansible and ansible core 
 - name: Install Plasma Desktop
   hosts: localhost
   become: true
@@ -38,6 +39,8 @@
           - acpid
           - cups
           - cups-browsed
+          - cronie
+          - syslog
           - nfs-utils
           - xdg-user-dirs
           - xdg-desktop-portal
@@ -80,6 +83,16 @@
       ansible.builtin.systemd_service:
         enabled: true
         name: cups
+
+    - name: Start Cronie
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cronie
+
+    - name: Start Fstrim
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: fstrim
 
     - name: Start Bluetooth
       ansible.builtin.systemd_service:
