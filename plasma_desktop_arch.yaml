@@ -33,6 +33,7 @@
           - konsole
           - dolphin
           - plasma-systemmonitor
+          - kinfocenter
           - discover
           - networkmanager
           - acpi
@@ -47,9 +48,6 @@
           - xdg-desktop-portal-kde
           - xdg-desktop-portal-gtk
           - plymouth
-          - packagekit
-          - packagekit-qt5
-          - packagekit-qt6
           - openssh
           - fwupd
           - reflector
