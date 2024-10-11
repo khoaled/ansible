@@ -83,6 +83,11 @@
         enabled: true
         name: cups
 
+    - name: Start Syslog-ng
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: syslog-ng@default
+
     - name: Start Cronie
       ansible.builtin.systemd_service:
         enabled: true
