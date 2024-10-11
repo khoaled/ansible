@@ -42,7 +42,7 @@
           - cups
           - cups-browsed
           - cronie
-          - syslog
+          - syslog-ng
           - nfs-utils
           - xdg-user-dirs
           - xdg-desktop-portal
@@ -91,7 +91,7 @@
     - name: Start Fstrim
       ansible.builtin.systemd_service:
         enabled: true
-        name: fstrim
+        name: fstrim.timer
 
     - name: Start Bluetooth
       ansible.builtin.systemd_service:
