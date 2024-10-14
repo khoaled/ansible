@@ -13,6 +13,7 @@
         name:
           - btrfs-progs
           - xfsprogs
+          - power-profiles-daemon
           - plasma-desktop
           - xorg-server
           - xorg-xwayland
@@ -82,6 +83,11 @@
       ansible.builtin.systemd_service:
         enabled: true
         name: cups
+
+    - name: Start Power-Profiles-Daemon
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: power-profiles-daemon
 
     - name: Start Syslog-ng
       ansible.builtin.systemd_service:
