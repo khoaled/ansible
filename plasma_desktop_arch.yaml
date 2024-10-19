@@ -13,6 +13,7 @@
         name:
           - btrfs-progs
           - xfsprogs
+          - inetutils
           - power-profiles-daemon
           - plasma-desktop
           - xorg-server
