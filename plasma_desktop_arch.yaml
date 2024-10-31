@@ -14,7 +14,8 @@
           - btrfs-progs
           - xfsprogs
           - inetutils
-          - power-profiles-daemon
+          - tuned
+          - tuned-ppd
           - plasma-desktop
           - xorg-server
           - xorg-xwayland
@@ -71,10 +72,9 @@
         name:
           - org.mozilla.firefox
           - com.google.Chrome
-          - com.spotify.Client
           - org.kde.kalk
           - org.kde.kwrite
-          - com.github.tchx84.Flatseal
+          - com.vivaldi.Vivaldi
           - com.bitwarden.desktop
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
@@ -85,10 +85,10 @@
         enabled: true
         name: cups
 
-    - name: Start Power-Profiles-Daemon
+    - name: Start Tuned
       ansible.builtin.systemd_service:
         enabled: true
-        name: power-profiles-daemon
+        name: tuned
 
     - name: Start Syslog-ng
       ansible.builtin.systemd_service:
