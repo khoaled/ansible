@@ -41,6 +41,7 @@
           - discover
           - networkmanager
           - tailscale
+          - partitionmanager
           - acpi
           - acpid
           - cups
