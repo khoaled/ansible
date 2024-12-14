@@ -64,6 +64,7 @@
           - com.mojang.Minecraft
           - org.libreoffice.LibreOffice
           - com.mattjakeman.ExtensionManager
+          - org.easycoding.TunedSwitcher
 
     - name: Start Cups
       ansible.builtin.systemd_service:
