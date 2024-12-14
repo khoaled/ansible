@@ -28,7 +28,7 @@
           - xdg-desktop-portal
           - xdg-desktop-portal-gnome
           - xdg-desktop-portal-gtk
-          - power-profiles-daemon
+          - tuned
           - plymouth
           - gnome-tweaks
           - gnome-software
