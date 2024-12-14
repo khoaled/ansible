@@ -80,6 +80,7 @@
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
           - com.discordapp.Discord
+          - org.easycoding.TunedSwitcher
 
     - name: Start Cups
       ansible.builtin.systemd_service:
