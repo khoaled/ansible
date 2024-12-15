@@ -38,6 +38,7 @@
           - papirus-icon-theme
           - fwupd
           - flatpak
+          - tailscale
         state: present
 
     - name: Other Utils
