@@ -39,6 +39,7 @@
           - fwupd
           - flatpak
           - tailscale
+          - firewalld
         state: present
 
     - name: Other Utils
