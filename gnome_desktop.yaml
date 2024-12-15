@@ -27,12 +27,6 @@
           - fwupd
           - gnome-software-plugin-flatpak
           - network-manager
-        state: present
-
-    - name: Other Utils
-      apt:
-        name:
-          - git
           - rsync
           - borgbackup
         state: present
