@@ -16,6 +16,11 @@
           - networkmanager
           - acpi
           - acpid
+          - bluez
+          - avahi
+          - cronie
+          - syslog-ng
+          - reflector
           - gnome-tweaks
           - gnome-control-center
           - gdm
@@ -40,14 +45,8 @@
           - flatpak
           - tailscale
           - firewalld
-        state: present
-
-    - name: Other Utils
-      community.general.pacman:
-        name:
-          - git
-          - rsync
           - borg
+          - rsync
         state: present
 
     - name: Add the flathub flatpak repository
@@ -61,19 +60,50 @@
         name:
           - org.mozilla.firefox
           - com.google.Chrome
-          - com.spotify.Client
-          - org.gnome.World.PikaBackup
+          - io.github.zen_browser.zen
+          - org.videolan.VLC
           - com.bitwarden.desktop
           - com.visualstudio.code
-          - com.mojang.Minecraft
           - org.libreoffice.LibreOffice
+          - org.gnome.Calculator
+          - org.gnome.gedit
+          - org.gnome.Photos
           - com.mattjakeman.ExtensionManager
-          - org.easycoding.TunedSwitcher
 
     - name: Start Cups
       ansible.builtin.systemd_service:
         enabled: true
         name: cups
+
+    - name: Start Tuned
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: tuned
+
+    - name: Start Syslog-ng
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: syslog-ng@default
+
+    - name: Start Cronie
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cronie
+
+    - name: Start Fstrim
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: fstrim.timer
+
+    - name: Start Bluetooth
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: bluetooth
+
+    - name: Start FirewallD
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: firewalld
 
     - name: Start Acpid    
       ansible.builtin.systemd_service:
