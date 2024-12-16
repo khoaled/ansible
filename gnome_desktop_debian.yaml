@@ -1,0 +1,111 @@
+- name: Install Gnome Desktop
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Update APT Package Cache
+      ansible.builtin.apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+    - name: Install Gnome Core
+      ansible.builtin.apt:
+        install_recommends: false
+        name:
+          - gnome-core
+        state: present
+        
+   - name: Install Gnome Dekstop components
+     ansible.builtin.apt:
+       name:
+          - gdm3
+          - firmware-linux-nonfree
+          - gnome-control-center
+          - gnome-tweaks
+          - cups
+          - nautilus
+          - plymouth
+          - plymouth-themes
+          - gnome-tweaks
+          - gnome-software
+          - gnome-system-monitor
+          - gnome-disk-utility
+          - flatpak
+          - fwupd
+          - gnome-software-plugin-flatpak
+          - network-manager
+          - rsync
+          - borgbackup
+          - firewalld
+          - tuned
+        state: present
+
+    - name: Add the flathub flatpak repository
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    - name: Install Flatpaks
+      community.general.flatpak:
+        name:
+          - org.mozilla.firefox
+          - com.google.Chrome
+          - com.bitwarden.desktop
+          - com.visualstudio.code
+          - org.libreoffice.LibreOffice
+          - com.mattjakeman.ExtensionManager
+
+    - name: update networkmanager.conf
+      ansible.builtin.replace:
+        path: /etc/NetworkManager/NetworkManager.conf
+        regexp: 'false'
+        replace: 'true'
+        - name: Start Cups
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cups
+
+    - name: Start Tuned
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: tuned
+
+    - name: Start Syslog-ng
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: syslog-ng@default
+
+    - name: Start Cronie
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cronie
+
+    - name: Start Fstrim
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: fstrim.timer
+
+    - name: Start Bluetooth
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: bluetooth
+
+    - name: Start FirewallD
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: firewalld
+
+    - name: Start Acpid    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: acpid
+
+    - name: Start Avahi-Daemon    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: avahi-daemon
+
+    - name: Start GDM    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: gdm
