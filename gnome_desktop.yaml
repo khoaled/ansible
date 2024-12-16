@@ -7,10 +7,16 @@
         update_cache: yes
         cache_valid_time: 3600
 
-    - name: Gnome Desktop
+    - name: Install Gnome Core
       apt:
+        install_recommends: false
         name:
           - gnome-core
+        state: present
+        
+   - name: Install Gnome Dekstop components
+     apt:
+       name:
           - gdm3
           - firmware-linux-nonfree
           - gnome-control-center
