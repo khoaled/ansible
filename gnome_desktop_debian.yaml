@@ -2,17 +2,17 @@
   hosts: localhost
   become: true
   tasks:
-    - name: Update APT Package Cache
-      ansible.builtin.apt:
-        update_cache: yes
-        cache_valid_time: 3600
+   - name: Update APT Package Cache
+     ansible.builtin.apt:
+       update_cache: yes
+       cache_valid_time: 3600
 
-    - name: Install Gnome Core
-      ansible.builtin.apt:
-        install_recommends: false
-        name:
-          - gnome-core
-        state: present
+   - name: Install Gnome Core
+     ansible.builtin.apt:
+       install_recommends: false
+       name:
+         - gnome-core
+       state: present
         
    - name: Install Gnome Dekstop components
      ansible.builtin.apt:
@@ -60,11 +60,12 @@
         path: /etc/NetworkManager/NetworkManager.conf
         regexp: 'false'
         replace: 'true'
-        - name: Start Cups
+        
+    - name: Start Cups
       ansible.builtin.systemd_service:
         enabled: true
         name: cups
-
+        
     - name: Start Tuned
       ansible.builtin.systemd_service:
         enabled: true
