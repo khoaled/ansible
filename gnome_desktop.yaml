@@ -58,4 +58,53 @@
         path: /etc/NetworkManager/NetworkManager.conf
         regexp: 'false'
         replace: 'true'
+        - name: Start Cups
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cups
+
+    - name: Start Tuned
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: tuned
+
+    - name: Start Syslog-ng
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: syslog-ng@default
+
+    - name: Start Cronie
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: cronie
+
+    - name: Start Fstrim
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: fstrim.timer
+
+    - name: Start Bluetooth
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: bluetooth
+
+    - name: Start FirewallD
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: firewalld
+
+    - name: Start Acpid    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: acpid
+
+    - name: Start Avahi-Daemon    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: avahi-daemon
+
+    - name: Start GDM    
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: gdm
 
