@@ -3,19 +3,19 @@
   become: true
   tasks:
     - name: Update APT Package Cache
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
         cache_valid_time: 3600
 
     - name: Install Gnome Core
-      apt:
+      ansible.builtin.apt:
         install_recommends: false
         name:
           - gnome-core
         state: present
         
    - name: Install Gnome Dekstop components
-     apt:
+     ansible.builtin.apt:
        name:
           - gdm3
           - firmware-linux-nonfree
