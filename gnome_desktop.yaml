@@ -35,6 +35,8 @@
           - network-manager
           - rsync
           - borgbackup
+          - firewalld
+          - tuned
         state: present
 
     - name: Add the flathub flatpak repository
