@@ -29,6 +29,8 @@
           - NetworkManager
           - plasma-desktop
           - xorg-x11-server-Xwayland
+          - NetworkManager-wifi
+          - NetworkManager-bluetooth
           - kscreen
           - sddm
           - sddm-kcm
