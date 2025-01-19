@@ -32,6 +32,7 @@
           - NetworkManager-wifi
           - NetworkManager-bluetooth
           - kscreen
+          - kinfocenter
           - sddm
           - sddm-kcm
           - sddm-themes
