@@ -70,6 +70,7 @@
           - com.google.Chrome
           - org.kde.kwrite
           - org.kde.kcalc
+          - org.kde.gwenview
           - com.bitwarden.desktop
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
