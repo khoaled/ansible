@@ -57,6 +57,7 @@
           - openssh
           - fwupd
           - reflector
+          - vlc
           - git
           - rsync
           - borg
