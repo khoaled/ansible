@@ -47,7 +47,6 @@
           - firewalld
           - borg
           - rsync
-          - vlc
         state: present
 
     - name: Add the flathub flatpak repository
