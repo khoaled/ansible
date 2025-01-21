@@ -60,7 +60,7 @@
         name:
           - org.mozilla.firefox
           - com.google.Chrome
-          - io.github.zen_browser.zen
+          - app.zen_browser.zen
           - org.videolan.VLC
           - com.bitwarden.desktop
           - com.visualstudio.code
