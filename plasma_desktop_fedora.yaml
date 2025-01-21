@@ -67,6 +67,7 @@
       community.general.flatpak:
         name:
           - org.mozilla.firefox
+          - app.zen_browser.zen
           - com.google.Chrome
           - org.kde.kwrite
           - org.kde.kcalc
