@@ -6,7 +6,13 @@
       ansible.builtin.dnf:
          name: "*"
          state: latest
-
+         
+    - name: Add Tailscale repo
+      ansible.builtin.yum_repository:
+        name: tailscale
+        description: tailscale repo
+        baseurl: https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+        
     - name: Plasma Desktop
       ansible.builtin.dnf:
         name:
@@ -55,6 +61,7 @@
           - papirus-icon-theme
           - papirus-icon-theme-dark
           - papirus-icon-theme-light
+          - tailscale
         state: present
 
     - name: Add the flathub flatpak repository
@@ -81,6 +88,11 @@
       ansible.builtin.systemd_service:
         enabled: true
         name: cups
+        
+    - name: Start Tailscale
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: tailscaled
 
     - name: Start Acpid    
       ansible.builtin.systemd_service:
