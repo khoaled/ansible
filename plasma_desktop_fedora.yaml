@@ -1,4 +1,4 @@
-- name: Install Plasma Desktop 
+- name: Install KDE Plasma Desktop 
   hosts: localhost
   become: true
   tasks:
@@ -13,7 +13,7 @@
         description: tailscale repo
         baseurl: https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         
-    - name: Plasma Desktop
+    - name: Install Plasma Desktop
       ansible.builtin.dnf:
         name:
           - acpi
