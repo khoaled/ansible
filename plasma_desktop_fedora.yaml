@@ -52,7 +52,6 @@
           - konsole
           - dolphin
           - ark
-          - vlc
           - plasma-systemmonitor
           - plasma-discover
           - plasma-discover-packagekit
@@ -84,6 +83,7 @@
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
           - com.discordapp.Discord
+          - org.videolan.VLC
 
     - name: Start Cups
       ansible.builtin.systemd_service:
