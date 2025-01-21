@@ -75,6 +75,11 @@
         enabled: true
         name: cups
 
+    - name: Start Tailscale
+      ansible.builtin.systemd_service:
+        enabled: true
+        name: tailscaled
+
     - name: Start Tuned
       ansible.builtin.systemd_service:
         enabled: true
