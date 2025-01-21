@@ -1,5 +1,5 @@
 # Install ansible and ansible core 
-- name: Install Plasma Desktop
+- name: Install KDE Plasma Desktop
   hosts: localhost
   become: true
   tasks:
@@ -8,7 +8,7 @@
          update_cache: true
          upgrade: true
 
-    - name: Plasma Desktop
+    - name: Install Plasma Desktop
       community.general.pacman:
         name:
           - btrfs-progs
