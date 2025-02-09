@@ -12,6 +12,7 @@
       community.general.pacman:
         name:
           - btrfs-progs
+          - exfatprogs
           - xfsprogs
           - inetutils
           - tuned
