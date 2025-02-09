@@ -23,6 +23,7 @@
           - flatpak
           - borgbackup
           - nfs-utils
+          - exfatprogs
           - cups
           - cups-browsed
           - avahi
