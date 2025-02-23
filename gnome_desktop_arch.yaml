@@ -34,6 +34,7 @@
           - xdg-desktop-portal-gnome
           - xdg-desktop-portal-gtk
           - tuned
+          - tuned-ppd
           - plymouth
           - gnome-tweaks
           - gnome-console
@@ -43,6 +44,7 @@
           - papirus-icon-theme
           - ttf-sourcecodepro-nerd
           - fwupd
+          - gnome-firmware
           - flatpak
           - tailscale
           - firewalld
