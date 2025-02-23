@@ -13,7 +13,7 @@
           - gnome-shell
           - xorg-server
           - xorg-xwayland
-          - networkmanager
+          - file-roller
           - acpi
           - acpid
           - bluez
