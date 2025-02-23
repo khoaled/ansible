@@ -68,7 +68,7 @@
           - org.libreoffice.LibreOffice
           - org.gnome.Calculator
           - org.gnome.gedit
-          - org.gnome.Photos
+          - org.gnome.Loupe
           - com.mattjakeman.ExtensionManager
 
     - name: Start Cups
