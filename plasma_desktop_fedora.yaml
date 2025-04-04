@@ -84,7 +84,7 @@
           - com.visualstudio.code
           - org.libreoffice.LibreOffice
           - com.discordapp.Discord
-          - org.videolan.VLC
+          - com.github.tchx84.Flatseal
 
     - name: Start Cups
       ansible.builtin.systemd_service:
