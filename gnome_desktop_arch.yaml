@@ -43,6 +43,7 @@
           - gnome-disk-utility
           - papirus-icon-theme
           - ttf-sourcecodepro-nerd
+          - ttf-jetbrains-mono-nerd
           - fwupd
           - gnome-firmware
           - flatpak
