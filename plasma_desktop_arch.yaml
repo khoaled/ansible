@@ -62,6 +62,8 @@
           - rsync
           - borg
           - flatpak
+          - ttf-sourcecodepro-nerd
+          - ttf-jetbrains-mono-nerd
         state: present
 
     - name: Add the flathub flatpak repository
