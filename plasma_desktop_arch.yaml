@@ -35,7 +35,7 @@
           - breeze-gtk
           - papirus-icon-theme
           - ark
-          - alacritty
+          - konsole
           - dolphin
           - plasma-systemmonitor
           - kinfocenter
