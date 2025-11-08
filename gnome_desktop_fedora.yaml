@@ -24,6 +24,7 @@
         - gnome-extensions-app
         - gnome-extension-dash-to-dock
         - gnome-extension-blur-my-shell
+        - papirus-icon-theme
         - nautilus
         - gvfs-nfs
         - nfs-utils
@@ -34,6 +35,12 @@
         - rsync
         - borgbackup
         - firefox
+        - tailscale
+        
+  - name: Enable Tailscale
+    ansible.builtin.systemd.service:
+      name: tailscaled
+      enabled: true
 
   - name: Enable avahi-daemon
     ansible.builtin.systemd.service:
