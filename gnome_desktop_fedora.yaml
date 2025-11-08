@@ -1,0 +1,51 @@
+---
+
+- hosts: localhost
+  become: true
+  tasks:
+
+  - name: DNF Update
+    dnf:
+      name: "*"
+      state: latest
+
+  - name: Install Gnome and Applications
+    dnf:
+      state: latest
+      name:
+        - avahi
+        - gnome-shell
+        - gnome-terminal
+        - gnome-tweaks
+        - gnome-software
+        - gnome-system-monitor
+        - gnome-disk-utility
+        - gnome-tweaks
+        - gnome-extensions-app
+        - gnome-extension-dash-to-dock
+        - gnome-extension-blur-my-shell
+        - nautilus
+        - gvfs-nfs
+        - nfs-utils
+        - plymouth
+        - plymouth-system-theme
+        - plymouth-theme-spinfinity
+        - libreoffice
+        - rsync
+        - borgbackup
+        - firefox
+
+  - name: Enable avahi-daemon
+    ansible.builtin.systemd.service:
+      name: avahi-daemon
+      enabled: true
+  
+  - name: Disable default
+    ansible.builtin.systemd_service:
+      name: default.target
+      enabled: false
+
+  - name: Enable desktop
+    ansible.builtin.systemd_service:
+      name: graphical.target
+      enabled: true
