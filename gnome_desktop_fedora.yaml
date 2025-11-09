@@ -1,8 +1,43 @@
 ---
 
+
 - hosts: localhost
   become: true
   tasks:
+
+  - name: Add Google Chrome GPG key
+    rpm_key:
+      state: present
+      key: https://dl.google.com/linux/linux_signing_key.pub
+
+  - name: Add Google Chrome repository
+    yum_repository:
+      name: google-chrome
+      description: Google Chrome
+      baseurl: https://dl.google.com/linux/chrome/rpm/stable/$basearch
+      gpgcheck: yes
+      gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+      enabled: yes
+
+  - name: Import the Microsoft GPG key
+    rpm_key:
+      state: present
+      key: https://packages.microsoft.com/keys/microsoft.asc
+
+  - name: Add the Visual Studio Code repository
+    yum_repository:
+      name: vscode
+      description: Visual Studio Code
+      baseurl: https://packages.microsoft.com/yumrepos/vscode
+      enabled: yes
+      gpgcheck: yes
+      gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+
+  - name: Install RPM Fusion free and non-free
+    dnf:
+      name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm,https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+      state: present
+    when: ansible_facts['os_family'] == 'Fedora'
 
   - name: DNF Update
     dnf:
@@ -14,6 +49,8 @@
       state: latest
       name:
         - avahi
+        - cups
+        - cups-browsed
         - gnome-shell
         - gnome-terminal
         - gnome-tweaks
@@ -22,24 +59,36 @@
         - gnome-disk-utility
         - gnome-tweaks
         - gnome-extensions-app
-        - gnome-extension-dash-to-dock
-        - gnome-extension-blur-my-shell
+        - gnome-shell-extension-dash-to-dock
+        - gnome-shell-extension-blur-my-shell
+        - gnome-shell-extension-user-theme
         - papirus-icon-theme
+        - jetbrains-mono-fonts-all
         - nautilus
         - gvfs-nfs
         - nfs-utils
+        - timeshift
         - plymouth
         - plymouth-system-theme
         - plymouth-theme-spinfinity
         - libreoffice
+        - gedit
         - rsync
+        - oh-my-posh
         - borgbackup
         - firefox
+        - google-chrome-stable
+        - code
         - tailscale
-        
+
   - name: Enable Tailscale
     ansible.builtin.systemd.service:
       name: tailscaled
+      enabled: true
+
+  - name: Enable Cups
+    ansible.builtin.systemd.service:
+      name: cups
       enabled: true
 
   - name: Enable avahi-daemon
