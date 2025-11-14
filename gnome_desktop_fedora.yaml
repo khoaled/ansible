@@ -4,6 +4,7 @@
   become: true
   tasks:
 
+# Add various repos and keys for Google Chrome, VScode, and Bitwarden
   - name: Add Google Chrome GPG key
     rpm_key:
       state: present
@@ -46,17 +47,20 @@
       gpgcheck: yes
       gpgkey: https://sisheogorath.github.io/bitwarden-rpm-deb-mirror/pub.gpg
 
+# Add RPM Fusion for non-free stuff
   - name: Install RPM Fusion free and non-free
     dnf:
       name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm,https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
       state: present
     when: ansible_facts['os_family'] == 'Fedora'
 
+# Update the system
   - name: DNF Update
     dnf:
       name: "*"
       state: latest
 
+# Install Desktop and Apps
   - name: Install Gnome and Applications
     dnf:
       state: latest
@@ -93,7 +97,8 @@
         - bitwarden
         - code
         - tailscale
-        
+
+# Stop and Start services        
   - name: Disable SSHD
     ansible.builtin.systemd.service:
       name: sshd
