@@ -1,6 +1,5 @@
 ---
 
-
 - hosts: localhost
   become: true
   tasks:
@@ -33,6 +32,20 @@
       gpgcheck: yes
       gpgkey: https://packages.microsoft.com/keys/microsoft.asc
 
+  - name: Import the Bitwarden GPG key
+    rpm_key:
+      state: present
+      key: https://sisheogorath.github.io/bitwarden-rpm-deb-mirror/pub.gpg
+
+  - name: Add the Bitwarden repository
+    yum_repository:
+      name: bitwarden
+      description: Bitwarden
+      baseurl: https://sisheogorath.github.io/bitwarden-rpm-deb-mirror/rpms
+      enabled: yes
+      gpgcheck: yes
+      gpgkey: https://sisheogorath.github.io/bitwarden-rpm-deb-mirror/pub.gpg
+
   - name: Install RPM Fusion free and non-free
     dnf:
       name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm,https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
@@ -57,7 +70,6 @@
         - gnome-software
         - gnome-system-monitor
         - gnome-disk-utility
-        - gnome-tweaks
         - gnome-extensions-app
         - gnome-shell-extension-dash-to-dock
         - gnome-shell-extension-blur-my-shell
@@ -78,8 +90,14 @@
         - borgbackup
         - firefox
         - google-chrome-stable
+        - bitwarden
         - code
         - tailscale
+        
+  - name: Disable SSHD
+    ansible.builtin.systemd.service:
+      name: sshd
+      enabled: false
 
   - name: Enable Tailscale
     ansible.builtin.systemd.service:
