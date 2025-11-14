@@ -66,6 +66,7 @@
       state: latest
       name:
         - avahi
+        - acpid
         - cups
         - cups-browsed
         - gnome-shell
@@ -117,6 +118,11 @@
   - name: Enable avahi-daemon
     ansible.builtin.systemd.service:
       name: avahi-daemon
+      enabled: true
+
+  - name: Enable acpid
+    ansible.builtin.systemd.service:
+      name: acpid
       enabled: true
   
   - name: Disable default
