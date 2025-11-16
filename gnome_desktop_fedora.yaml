@@ -72,6 +72,7 @@
         - gnome-shell
         - gnome-terminal
         - gnome-tweaks
+        - gnome-packagekit
         - gnome-software
         - gnome-system-monitor
         - gnome-disk-utility
