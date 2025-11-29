@@ -82,6 +82,7 @@
         - gnome-shell-extension-user-theme
         - papirus-icon-theme
         - jetbrains-mono-fonts-all
+        - google-noto-color-emoji-fonts
         - nautilus
         - gvfs-nfs
         - nfs-utils
