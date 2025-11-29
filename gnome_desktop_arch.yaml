@@ -44,6 +44,7 @@
           - papirus-icon-theme
           - ttf-sourcecodepro-nerd
           - ttf-jetbrains-mono-nerd
+          - google-noto-color-emoji-fonts
           - fwupd
           - gnome-firmware
           - flatpak
